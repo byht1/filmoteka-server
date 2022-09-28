@@ -1,15 +1,16 @@
-const { userJoi, User } = require("../../models/user");
+// const { userJoi, User } = require("../../models/user");
+const { User } = require("../../models/user");
 const bcrypt = require("bcryptjs");
 
 const { createError } = require("../../helpers");
 
 const signUp = async (req, res) => {
   const { email, password } = req.body;
-  const { error } = userJoi.validate(req.body);
+  // const { error } = userJoi.validate(req.body);
 
-  if (error) {
-    throw createError(400, "error in the disability");
-  }
+  // if (error) {
+  //   throw createError(400, "error in the disability");
+  // }
 
   const isNewUser = await User.findOne({ email });
 

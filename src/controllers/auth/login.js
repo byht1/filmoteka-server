@@ -1,7 +1,8 @@
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 
-const { userJoi, User } = require("../../models/user");
+// const { userJoi, User } = require("../../models/user");
+const { User } = require("../../models/user");
 
 const { createError } = require("../../helpers");
 
@@ -10,10 +11,10 @@ const { SECRET_KEY } = process.env;
 const logIn = async (req, res) => {
   const { email, password } = req.body;
 
-  const { error } = userJoi.validate(req.body);
-  if (error) {
-    throw createError(400, "error in the disability");
-  }
+  // const { error } = userJoi.validate(req.body);
+  // if (error) {
+  //   throw createError(400, "error in the disability");
+  // }
 
   const user = await User.findOne({ email });
   if (!user) {

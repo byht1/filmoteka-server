@@ -1,5 +1,5 @@
 const { Schema, model } = require("mongoose");
-const Joi = require("Joi");
+// const Joi = require("Joi");
 
 const userSchema = new Schema(
   {
@@ -20,16 +20,16 @@ const userSchema = new Schema(
   { versionKey: false, timestamps: true }
 );
 
-const emailRegexp = /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/;
+// const emailRegexp = /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/;
 
-const userJoi = Joi.object({
-  password: Joi.string().required(),
-  email: Joi.string().pattern(emailRegexp).required(),
-});
+// const userJoi = Joi.object({
+//   password: Joi.string().required(),
+//   email: Joi.string().pattern(emailRegexp).required(),
+// });
 
 const User = model("user", userSchema);
 
 module.exports = {
-  userJoi,
+  // userJoi,
   User,
 };
