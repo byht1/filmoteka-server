@@ -6,6 +6,7 @@ require("dotenv").config();
 global.basedir = __dirname;
 
 const userRouter = require("./routes/user/auth");
+const movieRouter = require("./routes/movie/movie");
 
 const app = express();
 
@@ -20,6 +21,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/user", userRouter);
+app.use("/movie", movieRouter);
 
 app.use((req, res) => {
   res.status(404).json({ message: "Not fount" });
