@@ -24,6 +24,11 @@ const movieSchema = new Schema(
       enum: ["queue", "watched"],
       default: "queue",
     },
+    language: {
+      type: String,
+      enum: ["uk-UA", "en-US"],
+      default: "en-US",
+    },
     owner: {
       type: Schema.Types.ObjectId,
       ref: "user",

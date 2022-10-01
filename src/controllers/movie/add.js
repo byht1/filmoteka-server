@@ -11,9 +11,18 @@ const add = async (req, res) => {
     poster_path: posterPath,
     id,
     vote_average: voteAverage,
-  } = await dataMovie(movieId, language);
+  } = await dataMovie(movieId, "en-US");
+
+  const {
+    genres: genresUK,
+    title: titleUK,
+    poster_path: posterPathUK,
+    id: idUK,
+    vote_average: voteAverageUK,
+  } = await dataMovie(movieId, "uk-UA");
 
   const genreID = genres.map((x) => x.id);
+  const genreIDUK = genresUK.map((x) => x.id);
 
   const { id: owner } = req.user;
 
@@ -24,10 +33,26 @@ const add = async (req, res) => {
     genre_ids: genreID,
     vote_average: voteAverage,
     library,
+    language: "en-US",
     owner,
   });
 
-  res.status(200).json(response);
+  const responseUK = await Movie.create({
+    id: idUK,
+    title: titleUK,
+    poster_path: posterPathUK,
+    genre_ids: genreIDUK,
+    vote_average: voteAverageUK,
+    library,
+    language: "uk-UA",
+    owner,
+  });
+
+  if (language === "en-US") {
+    res.status(200).json(response);
+  } else {
+    res.status(200).json({ response: responseUK });
+  }
 };
 
 module.exports = add;

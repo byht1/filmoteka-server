@@ -14,8 +14,8 @@ const { auth } = require(`${basedir}/middleware`);
 const router = express.Router();
 
 router.post("/", auth, ctrlWrapper(add));
-router.get("/queue", auth, ctrlWrapper(getQueue));
-router.get("/watched", auth, ctrlWrapper(getWatched));
+router.get("/queue/:language", auth, ctrlWrapper(getQueue));
+router.get("/watched/:language", auth, ctrlWrapper(getWatched));
 router.delete("/queue/:id", auth, ctrlWrapper(deleteQueue));
 router.delete("/watched/:id", auth, ctrlWrapper(deleteWatched));
 

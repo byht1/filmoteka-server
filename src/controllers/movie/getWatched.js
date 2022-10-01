@@ -3,9 +3,12 @@ const { Movie } = require("../../models/movie");
 const getWatched = async (req, res) => {
   const { id: owner } = req.user;
   const { page = 1 } = req.query;
+  const { language: lang } = req.params;
+
+  const language = lang === "en" ? "en-US" : "uk-UA";
 
   const result = await Movie.find(
-    { owner, library: "watched" },
+    { owner, library: "watched", language },
     "-createdAt -updatedAt"
   );
 
