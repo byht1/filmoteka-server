@@ -7,6 +7,7 @@ const {
   logIn,
   logOut,
   validate,
+  activate,
 } = require(`${basedir}/controllers/auth`);
 const { auth } = require(`${basedir}/middleware`);
 
@@ -16,5 +17,6 @@ router.post("/signup", ctrlWrapper(signUp));
 router.post("/", ctrlWrapper(logIn));
 router.get("/", auth, ctrlWrapper(logOut));
 router.get("/validate", auth, validate);
+router.get("/activate/:activateLink", activate);
 
 module.exports = router;

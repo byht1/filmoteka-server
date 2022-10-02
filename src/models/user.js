@@ -16,6 +16,14 @@ const userSchema = new Schema(
       type: String,
       default: null,
     },
+    isActivate: {
+      type: Boolean,
+      default: false,
+    },
+    activateLink: {
+      type: String,
+      required: true,
+    },
   },
   { versionKey: false, timestamps: true }
 );
