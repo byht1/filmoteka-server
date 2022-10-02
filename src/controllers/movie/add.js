@@ -11,6 +11,7 @@ const add = async (req, res) => {
     poster_path: posterPath,
     id,
     vote_average: voteAverage,
+    release_date: date,
   } = await dataMovie(movieId, "en-US");
 
   const {
@@ -19,6 +20,7 @@ const add = async (req, res) => {
     poster_path: posterPathUK,
     id: idUK,
     vote_average: voteAverageUK,
+    release_date: dateUK,
   } = await dataMovie(movieId, "uk-UA");
 
   const genreID = genres.map((x) => x.id);
@@ -33,6 +35,7 @@ const add = async (req, res) => {
     genre_ids: genreID,
     vote_average: voteAverage,
     library,
+    release_date: date,
     language: "en-US",
     owner,
   });
@@ -43,6 +46,7 @@ const add = async (req, res) => {
     poster_path: posterPathUK,
     genre_ids: genreIDUK,
     vote_average: voteAverageUK,
+    release_date: dateUK,
     library,
     language: "uk-UA",
     owner,
