@@ -31,7 +31,7 @@ const movieSchema = new Schema(
     },
     release_date: {
       type: String,
-    }
+    },
     owner: {
       type: Schema.Types.ObjectId,
       ref: "user",
