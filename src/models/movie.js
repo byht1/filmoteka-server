@@ -29,6 +29,9 @@ const movieSchema = new Schema(
       enum: ["uk-UA", "en-US"],
       default: "en-US",
     },
+    release_date: {
+      type: String,
+    }
     owner: {
       type: Schema.Types.ObjectId,
       ref: "user",
