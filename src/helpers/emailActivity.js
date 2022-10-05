@@ -4,11 +4,11 @@ const { EMAIL_PASSWORD } = process.env;
 
 const emailActivity = async (email, url) => {
   const config = {
-    host: "mail.adm.tools",
-    port: 465,
-    secure: true,
+    host: "smtp.gmail.com",
+    port: 587,
+    secure: false,
     auth: {
-      user: "dykhal.vo@kriomedservice.com",
+      user: "test.server.byht1@gmail.com",
       pass: `${EMAIL_PASSWORD}`,
     },
   };
@@ -16,7 +16,7 @@ const emailActivity = async (email, url) => {
   const transporter = nodemailer.createTransport(config);
 
   const emailOptions = {
-    from: "dykhal.vo@kriomedservice.com",
+    from: "test.server.byht1@gmail.com",
     to: `${email}`,
     subject: "Підтвердження пошти на сайті Filmoteca",
     html: `
